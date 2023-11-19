@@ -1,25 +1,38 @@
 .message {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
 
 }
 
 .imageAndText {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+
 
 }
 
 .imageAndText img {
+    width: 50px;
+}
+.text{
+   background-color: rgb(210, 208, 244);
+   border-radius: 5px;
+   border-bottom-left-radius: 0;
 
 }
 
-.text {
+/* .text:after {
 
-}
-
-.text:after {
-
-}
+} */
 
 .name {
-
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .messageText {
@@ -27,5 +40,6 @@
 }
 
 .time {
+font-size: 10px;
 
 }
