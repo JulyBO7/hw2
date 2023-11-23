@@ -1,16 +1,25 @@
 .friendMessage {
-
+    display: flex;
+    flex-direction: column;
+align-items: flex-end;
 }
 
 .friendImageAndText {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+
 
 }
 
 .friendImageAndText img {
-
+    width: 50px;
 }
 
 .friendText {
+    background-color: rgb(210, 208, 244);
+    border-radius: 5px;
+    border-bottom-right-radius: 0;
 
 }
 
@@ -19,13 +28,17 @@
 }
 
 .friendName {
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
 
 }
 
 .friendMessageText {
+   
 
 }
 
 .friendTime {
-
+    font-size: 10px;
 }

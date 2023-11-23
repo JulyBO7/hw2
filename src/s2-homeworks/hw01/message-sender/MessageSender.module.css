@@ -1,18 +1,25 @@
 .sendForm {
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .textarea {
-
+    width: 70vw;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(249, 249, 247);
 }
 
 .button {
-
+    width: 5vw;
+    height: 30px; 
+    border-radius: 10px;
+    background-color: rgb(160, 148, 235)
 }
 
-.button:hover {
+/* .button:hover {
 
 }
 .button:active {
 
-}
+} */
