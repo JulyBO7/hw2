@@ -9,6 +9,7 @@ const Stand = () => {
     const [error, setError] = useState<string>('')
 
     const [stateForAllCheckboxes, setChecked] = useState<boolean>(false)
+    
 
     return (
         <div id={'hw4-stand'} className={s.stand}>
@@ -29,11 +30,7 @@ const Stand = () => {
                         onChangeText={setValue}
                         error={error}
                         onEnter={() => {
-                            setError(
-                                stateForAllInputs.trim()
-                                    ? ''
-                                    : 'Error'
-                            )
+                            setError(stateForAllInputs.trim() ? '' : 'Error')
                             setValue('')
                         }}
                     />

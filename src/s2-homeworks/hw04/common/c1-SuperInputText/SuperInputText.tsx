@@ -15,6 +15,7 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     // и + ещё пропсы которых нет в стандартном инпуте
+    // onChange: (e: ChangeEvent<HTMLInputElement>) => void 
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: ReactNode
@@ -25,7 +26,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     {
         onChange,
         onChangeText,
-        onKeyPress,
+        // onKeyDown,
         onEnter,
         error,
         className,
@@ -36,12 +37,13 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e) // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
+        onChange && onChange(e) || onChangeText && onChangeText(e.currentTarget.value) 
+        
+        // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
 
-        onChangeText?.(e.currentTarget.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
-        onKeyPress?.(e)
+        // onKeyPress?.(e)
 
         onEnter && // если есть пропс onEnter
         e.key === 'Enter' && // и если нажата кнопка Enter
@@ -50,6 +52,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
 
     const finalSpanClassName = s.error
         + (spanClassName ? ' ' + spanClassName : '')
+
     const finalInputClassName = s.input
         + (error ? ' ' + s.errorInput : ' ' + s.superInput)
         + (className ? ' ' + className : '') // задача на смешивание классов
@@ -60,7 +63,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
                 id={id}
                 type={'text'}
                 onChange={onChangeCallback}
-                onKeyPress={onKeyPressCallback}
+                onKeyDown={onKeyPressCallback}
                 className={finalInputClassName}
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
