@@ -1,4 +1,7 @@
 .radio {
+    /* background-image: url('../Vector.png');
+    background-size: 20px;
+    cursor:; */
 }
 
 .radio::before {
@@ -9,7 +12,20 @@
 }
 
 .label {
+    display: flex;
+    gap: 11px;
+
 }
 
 .options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #000;
+
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

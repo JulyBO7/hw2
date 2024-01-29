@@ -15,8 +15,10 @@
     position: relative;
 }
 
-/* .superInput {
-} */
+.superInput {
+    width: 285px;
+
+}
 
 .errorInput {
     border: 1px solid #CC1439;
